@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="header"></div>
+    <form action="/action_page.php">
+      <label for="fname">Book name:</label>
+      <input type="text" id="bname" name="bname" /><br /><br />
+      <label for="lname">Author:</label>
+      <input type="text" id="author" name="author" /><br /><br />
+      <label for="pages">pages:</label>
+      <input type="number" name="pages" id="pages" /> <br /><br />
+    </form>
+    <button class="Add" onclick="addBookToLibrary()">Add Book</button>
+    <div class="library">
+      <div class="book">
+        <p class="bookName">Book Name</p>
+        <p class="Author:">Author Name</p>
+        <p class="pages:">444</p>
+      </div>
+      <div class="book">
+        <p class="bookName">Fault in our stars</p>
+        <p class="Author:">Kevin Nunez</p>
+        <p class="pages:">304</p>
+      </div>
+    </div>
+
+    <!-- <script src="script.js"></script> -->
+    <script src="js.js"></script>
+  </body>
+</html>
