@@ -87,7 +87,7 @@ function addBookToLibrary() {
 const modal = document.querySelector('.modal');
 const dialog = document.querySelector('dialog');
 
-const addBook = document.querySelector('.bookAdd');
+const addBook = document.querySelector('.addBook');
 
 addBook.addEventListener('click', () => {
   modal.showModal();
