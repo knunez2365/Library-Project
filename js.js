@@ -1,7 +1,7 @@
 const librarySelector = document.querySelector('.library');
 const pCreation = document.createElement('p');
 
-uniqueID = 0;
+let uniqueID = 0;
 
 let myLibrary = [];
 
@@ -17,6 +17,9 @@ function addBookToLibrary() {
     // get values from input
     id = uniqueID++;
     bookName = document.querySelector('#bname').value;
+    domName = document.querySelector('#bname').value;
+    bookName = bookName.split(' ').join('').toLowerCase();
+    console.log(bookName);
     author = document.querySelector('#author').value;
     pages = document.querySelector('#pages').value;
     // clear values
@@ -32,7 +35,7 @@ function addBookToLibrary() {
     createdBook = document.querySelector(`.book.${bookName}`);
     bookTitle = document.createElement(`p`);
     bookTitle.classList.add('bookName');
-    bookTitle.textContent = `${bookName}`;
+    bookTitle.textContent = `${domName}`;
     bookAuthor = document.createElement(`p`);
     bookAuthor.classList.add('Author:');
     bookAuthor.textContent = `${author}`;
@@ -47,20 +50,68 @@ function addBookToLibrary() {
     bookCreated = new Book(id, bookName, pages, author);
     myLibrary.push(bookCreated);
 
-    button = document.querySelectorAll('.remove');
-    button.forEach((remove) => {
-      remove.addEventListener(
-        'click',
-        function (e) {
-          console.log(e.target.id);
-        },
-        false
-      );
+    buttons = document.querySelectorAll('.remove');
+
+    buttons.forEach((button) => {
+      button.addEventListener('click', function () {
+        let book = button.parentElement;
+        let bookId = parseInt(book.getAttribute('id'));
+        console.log(typeof bookId);
+        const title = book.querySelector('.bookName').textContent;
+        console.log(title);
+        console.log(bookId);
+        // console.log(myLibrary.find((obj) => obj.id === bookId));
+
+        myLibrary = myLibrary.filter((x) => x.id != bookId);
+        console.log(myLibrary);
+
+        this.parentElement.remove();
+        // checkBook(id);
+        console.log(myLibrary);
+        // // console.log('myLibaryID');
+        // myLibrary.splice(libIndex, 1);
+      });
     });
-    // button.forEachaddEventListener('click', () => {
+
+    // button.forEach((event) => {
+    //   event.addEventListener('click', function (e) {
+    //     console.log('e.target.id');
+    //   });
+    // });
+    // button.forEach.addEventListener('click', () => {
     //   console.log('test');
     // });
   }
+}
+
+const modal = document.querySelector('.modal');
+const dialog = document.querySelector('dialog');
+
+const addBook = document.querySelector('.bookAdd');
+
+addBook.addEventListener('click', () => {
+  modal.showModal();
+});
+
+function onClick(event) {
+  if (event.target === dialog) {
+    dialog.close();
+  }
+}
+
+function escClick(event) {
+  if (event.key === 'Escape') {
+    dialog.close();
+  }
+}
+
+dialog.addEventListener('keypress', escClick);
+
+dialog.addEventListener('click', onClick);
+
+function checkBook(match) {
+  console.log(match === myLibrary.indexOf(0, 0));
+  console.log(myLibrary);
 }
 
 // bookRemove = function () {
