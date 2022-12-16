@@ -12,4 +12,4 @@ Completed:
 - ~~Select and Delete Mylibrary Array and Book Dom~~
 - ~~Fix Remove~~
 - ~~add Modal window~~
-- ~~Fix CSS
+- ~~Fix CSS~~
